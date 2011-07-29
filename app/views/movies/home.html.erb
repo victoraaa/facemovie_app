@@ -38,7 +38,7 @@
           :id1 => @randmovies.first, :id2 => @randmovies.second } %> 
         </td>
         <td> 
-          <%=link_to image_tag "movies/#{@randmovies.second.name}.jpg", { :action => 'vote',
+          <%=link_to image_tag("movies/#{@randmovies.second.name}.jpg"), { :action => 'vote',
           :id1 => @randmovies.second, :id2 => @randmovies.first }  %> 
         </td>
       </tr>
