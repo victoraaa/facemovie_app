@@ -1,0 +1,37 @@
+<h1>Pagina de Votacao</h1>
+
+<table>
+  <tr>
+    <th>Qual eh o melhor?</th>
+  </tr>
+
+  <tr>
+    <td><%= @randmovies.first.name %>
+    <%=link_to 'vote', { :action => 'vote', :id1 => @randmovies.first, :id2 => @randmovies.second } %> </td>
+  </tr>
+  <tr>
+    <td><%= @randmovies.second.name %> 
+    <%=link_to 'vote', { :action => 'vote', :id1 => @randmovies.second, :id2 => @randmovies.first }  %> </td>
+  </tr>
+  
+</table>
+
+<br />
+<br />
+<br />
+
+<h2>Ranking</h2>
+
+<table>
+  <tr>
+    <th>Nome do Filme</th>
+    <th>Pontuacao</th>
+  </tr>
+
+<% @movies.each do |movie| %>
+  <tr>
+    <td><%= movie.name %></td>
+    <td><%= movie.rating %></td>
+  </tr>
+<% end %>
+</table>
