@@ -1,37 +1,54 @@
-<h1>Pagina de Votacao</h1>
-
-<table>
-  <tr>
-    <th>Qual eh o melhor?</th>
-  </tr>
-
-  <tr>
-    <td><%= @randmovies.first.name %>
-    <%=link_to 'vote', { :action => 'vote', :id1 => @randmovies.first, :id2 => @randmovies.second } %> </td>
-  </tr>
-  <tr>
-    <td><%= @randmovies.second.name %> 
-    <%=link_to 'vote', { :action => 'vote', :id1 => @randmovies.second, :id2 => @randmovies.first }  %> </td>
-  </tr>
+<div class="container">
+  <div class="span-24">
+    <h1>Pagina de Votacão</h1>
+  </div>
   
-</table>
+  <div class="span-4">
+    <h2>Ranking</h2>
+    
+    <table>
+      <tr>
+        <th>Nome do Filme</th>
+        <th>Pontuacao</th>
+      </tr>
+      
+      <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.name %></td>
+        <td><%= movie.rating %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="span-16">
+    
+    <% if @randmovies!=nil%>
+    <table>
+      <tr>
+        <h1>Qual é o melhor?</h1>
+      </tr>
+      
+      <tr>
+        <td><h3><%= @randmovies.first.name %></h3</td>
+        <td><h3><%= @randmovies.second.name %></h3></td>
+      </tr>
+      <tr>
+        <td><%= image_tag "movies/#{@randmovies.first.name}.jpg"%></td>
+        <td><%= image_tag "movies/#{@randmovies.second.name}.jpg"%></td>
+      </tr>
+      <tr>
+        <td> 
+          <%=link_to 'vote', { :action => 'vote',
+          :id1 => @randmovies.first, :id2 => @randmovies.second } %> 
+        </td>
+        <td> 
+          <%=link_to 'vote', { :action => 'vote',
+          :id1 => @randmovies.second, :id2 => @randmovies.first }  %> 
+        </td>
+      </tr>
+          
+    </table>
+    <% end%>
+  </div>  
+</div>
 
-<br />
-<br />
-<br />
-
-<h2>Ranking</h2>
-
-<table>
-  <tr>
-    <th>Nome do Filme</th>
-    <th>Pontuacao</th>
-  </tr>
-
-<% @movies.each do |movie| %>
-  <tr>
-    <td><%= movie.name %></td>
-    <td><%= movie.rating %></td>
-  </tr>
-<% end %>
-</table>

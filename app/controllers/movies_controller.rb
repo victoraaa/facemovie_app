@@ -21,7 +21,11 @@ def vote
   
   # GET /
   def home
-    @randmovies = Movie.all.sort_by {rand}[0..1]
+    if Movie.all.size>=2
+      @randmovies = Movie.all.sort_by {rand}[0..1]
+    else
+      @randmovies=nil
+    end
     @movies = Movie.order('rating DESC').limit(10)
 
     respond_to do |format|

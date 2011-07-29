@@ -1,6 +1,7 @@
 FacemovieApp::Application.routes.draw do
-  match 'movies/vote' => 'movies#vote', :as => 'vote'
   resources :movies
+  match 'movies/vote' => 'movies#vote', :as => 'vote'
+  
   
   root :to => 'movies#home'
 
