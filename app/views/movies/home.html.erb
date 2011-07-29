@@ -33,16 +33,12 @@
         <td><h3><%= @randmovies.second.name %></h3></td>
       </tr>
       <tr>
-        <td><%= image_tag "movies/#{@randmovies.first.name}.jpg"%></td>
-        <td><%= image_tag "movies/#{@randmovies.second.name}.jpg"%></td>
-      </tr>
-      <tr>
-        <td> 
-          <%=link_to 'vote', { :action => 'vote',
+        <td>
+          <%=link_to image_tag("movies/#{@randmovies.first.name}.jpg"), { :action => 'vote',
           :id1 => @randmovies.first, :id2 => @randmovies.second } %> 
         </td>
         <td> 
-          <%=link_to 'vote', { :action => 'vote',
+          <%=link_to image_tag "movies/#{@randmovies.second.name}.jpg", { :action => 'vote',
           :id1 => @randmovies.second, :id2 => @randmovies.first }  %> 
         </td>
       </tr>
